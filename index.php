@@ -13,7 +13,7 @@
 				echo $row['Title'];
 		 	?>
 		 </title>
-		<link rel="stylesheet" type="text/css" href="dl_style.css" />
+		<link rel="stylesheet" type="text/css" href="design/dl_style.css" />
 	</head>
 	<body>
 		<?php
