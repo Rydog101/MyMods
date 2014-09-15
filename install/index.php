@@ -47,7 +47,7 @@
   				preg_match('@[0-9]+\.[0-9]+\.[0-9]+@', $output, $version); 
   				return @$version[0]?$version[0]:-1; 
 			}
- 
+
 			$mysql_version=find_SQL_Version();        
 							
 			if($mysql_version<5) {
@@ -81,7 +81,7 @@
 					<td>
 						<?php 
 							if ($php_error==true) {
-								echo "<span style=\"color:red\">PHP version is $php_version - too old!</span>";
+								echo "<span style=\"color:red\">PHP version is ". $php_version ." - too old!</span>";
 							} else {
 								echo "<span style=\"color:green\">" . phpversion() . " - OK!</span>";
 							}
