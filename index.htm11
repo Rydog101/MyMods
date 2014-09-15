@@ -1,0 +1,88 @@
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>RyStuff Downloads</title>
+    <link rel="stylesheet" type="text/css" href="./dl_style.css">
+  </head>
+  <body>
+  <br>
+    <div ALIGN="center">
+      <img src="./maven/theme/icons/logo.png" alt="Logo" style="width:413;height:96">
+    </div>
+    <div id="container" style="width: 900px; margin-left: auto; margin-right: auto">
+      <div id="main" style="width: 900px; float: left">
+        <div id="1.7.10" class="download" style="display: block;">
+          <h2>Promotions</h2>
+            <table border="0">
+              <tbody>
+                <tr>
+                  <th>Mod</th>
+                  <th>Version</th>
+                  <th>Minecraft</th>
+                  <th>Downloads</th>
+                  <th>Forum</th>
+                </tr>
+                <tr>
+                  <td>Turtle Mod Latest</td>
+                  <td>Alpha-5.0-Pre-05</td>
+                  <td>1.7.10</td>
+                  <td>
+                    (<a href="http://download.rystuff.net/12475446575691">dev</a>)
+                    (<a href="http://download.rystuff.net/12475446575644">src</a>)
+                    (<a href="http://download.rystuff.net/12475426624188">universal</a>)
+                  </td>
+                  <td>
+                    (<a href="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/1442456-wip-1-6-4-deathjustys-crazy-turtles-mod-alpha-4-5">MCF</a>)
+                    (<a href="http://www.planetminecraft.com/mod/deathjustys-crazy-turtle-mod-alpha-10/">PMC</a>)
+                </tr>
+                <tr>
+                  <td>Turtle Mod Recommended</td>
+                  <td>Alpha-5.0-Pre-05</td>
+                  <td>1.7.10</td>
+                  <td>
+                    (<a href="http://download.rystuff.net/12475446575691">dev</a>)
+                    (<a href="http://download.rystuff.net/12475446575644">src</a>)
+                    (<a href="http://download.rystuff.net/12475426624188">universal</a>)
+                  </td>
+                  <td>
+                    (<a href="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/1442456-wip-1-6-4-deathjustys-crazy-turtles-mod-alpha-4-5">MCF</a>)
+                    (<a href="http://www.planetminecraft.com/mod/deathjustys-crazy-turtle-mod-alpha-10/">PMC</a>)
+                </tr>
+              </tbody>
+            </table>
+          <h2>1.7.10 Downloads</h2>
+          <table border="0">
+            <tbody>
+              <tr>
+                <th>Mod</th>
+                <th>Version</th>
+                <th>Minecraft</th>
+                <th>Downloads</th>
+                <th>Forum</th>
+              </tr>
+              <tr>
+                <td>Turtle Mod</td>
+                <td>Alpha-5.0-Pre-05</td>
+                <td>1.7.10</td>
+                <td>
+                  (<a href="http://download.rystuff.net/12475446575691">dev</a>)
+                  (<a href="http://download.rystuff.net/12475446575644">src</a>)
+                  (<a href="http://download.rystuff.net/12475426624188">universal</a>)
+                </td>
+                <td>
+                  (<a href="http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/1442456-wip-1-6-4-deathjustys-crazy-turtles-mod-alpha-4-5">MCF</a>)
+                  (<a href="http://www.planetminecraft.com/mod/deathjustys-crazy-turtle-mod-alpha-10/">PMC</a>)
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="footer" style="width: 900px; float: left; margin-top: 50px">
+        <a>If you don't know what version to download, use universal!</a>
+        <br>
+        <a href="https://twitter.com/ry_dog101">@Ry_dog101</a>
+      </div>
+    </div>
+  </body>
+</html>
