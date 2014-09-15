@@ -67,7 +67,8 @@
 			</tbody>
 		</table>
 		<?php
-			$tables = mysqli_query($con, "show tables");
+			$tables = mysqli_query($con, "SELECT table_name, engine FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema='files' ORDER BY table_name DESC");
+
 			while($row = mysqli_fetch_array($tables)) {
 				if($row[0] == "settings" || $row[0] == "promotions") {
 
