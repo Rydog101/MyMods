@@ -17,6 +17,10 @@
 	</head>
 	<body>
 		<?php
+			if (file_exists("install/index.php")) {
+				header("Location: ./install");
+				die();
+			} else {
 			include("header.php");
 		?>
 		<h2>Promotions</h2>
@@ -126,6 +130,8 @@
 				}
 			}
 		?>
-		
+		<?php
+			}
+		?>
 	</body>
 </html>
