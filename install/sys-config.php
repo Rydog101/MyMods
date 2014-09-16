@@ -41,7 +41,7 @@
 			<th>Status</th>
 		</tr>
 		<tr>
-			<td>PHP Version (Must be 5 or latter)</td>
+			<td>PHP Version (Must be 5 or later)</td>
 			<td>
 				<?php 
 					if ($php_error==true) {
@@ -52,7 +52,7 @@
 				?>
 			</td>
 		<tr>
-			<td>MySQL Version (Must be 5 or latter)</td>
+			<td>MySQL Version (Must be 5 or later)</td>
 			<td>
 				<?php
 					echo $mysql_error;
