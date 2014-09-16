@@ -25,6 +25,24 @@
 		echo $error_msg;
 	}
 
+	$connect_code="<?php
+	\$host = \"" . $host . "\";
+	\$username = \"" . $username . "\";
+	\$password =  \"" . $password . "\";
+	\$db_name = \"" . $database . "\";
+	?>";
+
+	if(!is_writable("../inc/db_settings.php")) {
+		$error_msg="<p>Sorry, I can't write to <b>inc/db_connect.php</b>.
+		You will have to edit the file yourself. Here is what you need to insert in that file:<br /><br />
+		<textarea rows='5' cols='50' onclick='this.select();'>$connect_code</textarea></p>";
+	} else {
+		$fp = fopen('../inc/db_settings.php', 'wb');
+		fwrite($fp,$connect_code);
+		fclose($fp);
+		chmod('../inc/db_settings.php', 0666);
+	}
+
 	if (!$db_error) {
 		$promotions_table = "CREATE TABLE IF NOT EXISTS `promotions` ( `Promotion` longtext NOT NULL, `Version` text NOT NULL, `Minecraft` text NOT NULL, `changelog` longtext NOT NULL, `javadoc` longtext NOT NULL, `src` longtext NOT NULL, `universal` longtext NOT NULL, `mcf` longtext NOT NULL, `pmc` longtext NOT NULL, `dev` longtext NOT NULL )";
 		mysqli_query($con, $promotions_table);
@@ -32,29 +50,7 @@
 		mysqli_query($con, $settings_table);
 	}
 
-	function Delete($path)
-	{
-	if (is_dir($path) === true)
-    {
-        $files = array_diff(scandir($path), array('.', '..'));
-
-        foreach ($files as $file)
-        {
-            Delete(realpath($path) . '/' . $file);
-        }
-
-        return rmdir($path);
-    }
-
-    else if (is_file($path) === true)
-    {
-        return unlink($path);
-    }
-
-    return false;
-	}
-
-	Delete("../install");
+	
 ?>
 <div class="database-connect">
 	<br>

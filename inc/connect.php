@@ -1,8 +1,5 @@
 <?php
-	$host = "localhost";
-	$username = "root";
-	$password =  "";
-	$db_name = "files";
+	include("./inc/db_settings.php");
 
 	$con = mysqli_connect($host, $username, $password, $db_name);
 
