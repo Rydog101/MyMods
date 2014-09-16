@@ -8,8 +8,11 @@
 	<body>
 		<center>
 			<br>
-				<div class="content" id="content">
-					<?php
-						include("sys-config.php");
-					?>
-				</div>
+			<div class="content" id="content">
+				<?php
+					include("sys-config.php");
+				?>
+			</div>
+		</center>
+	</body>
+</html>

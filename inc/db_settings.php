@@ -2,5 +2,5 @@
 	$host = "localhost";
 	$username = "root";
 	$password =  "";
-	$db_name = "root";
+	$db_name = "ilexiconn";
 	?>
