@@ -30,7 +30,7 @@
 	\$username = \"" . $username . "\";
 	\$password =  \"" . $password . "\";
 	\$db_name = \"" . $database . "\";
-	?>";
+?>";
 
 	if(!is_writable("../inc/db_settings.php")) {
 		$error_msg="<p>Sorry, I can't write to <b>inc/db_connect.php</b>.
@@ -50,6 +50,5 @@
 		mysqli_query($con, $settings_table);
 	}
 
-	header("Location: rediect.php");
-	die();
+	echo "<script> window.location.replace('../inc/remove.php') </script>"
 ?>
