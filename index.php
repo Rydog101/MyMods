@@ -1,4 +1,8 @@
 <?php
+	if (file_exists("./install/index.php")) {
+		header("Location: ./install");
+		die();
+	} else {
 	include("inc/connect.php");
 ?>
 <html>
@@ -17,10 +21,6 @@
 	</head>
 	<body>
 		<?php
-			if (file_exists("install/index.php")) {
-				header("Location: ./install");
-				die();
-			} else {
 			include("header.php");
 		?>
 		<h2>Promotions</h2>
