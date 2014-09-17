@@ -1,4 +1,4 @@
-<script src="database-config.js"></script>
+<script src="jscripts/database-config.js"></script>
 <div class="database-config">
 	<br>
 	<h2>Database Settings</h2>

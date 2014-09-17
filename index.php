@@ -1,9 +1,9 @@
 <?php
 	if (file_exists("./install/index.php")) {
-		header("Location: ./install");
-		die();
+	 	header("Location: ./install");
+	 	die();
 	} else {
-	include("inc/connect.php");
+		include("inc/connect.php");
 ?>
 <html>
 	<head>
@@ -17,7 +17,7 @@
 				echo $row['Title'];
 		 	?>
 		 </title>
-		<link rel="stylesheet" type="text/css" href="design/dl_style.css" />
+		<link rel="stylesheet" type="text/css" href="inc/dl_style.css" />
 	</head>
 	<body>
 		<?php

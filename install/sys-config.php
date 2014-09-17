@@ -1,3 +1,4 @@
+<script src="jscripts/sys-config.js"></script>
 <?php
 	$php_version=phpversion();
 	$php_error = false;

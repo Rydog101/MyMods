@@ -1,9 +1,8 @@
 <html>
 	<head>
 		<title>Installer</title>
-		<link rel="stylesheet" href="style.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="sys-config.js"></script>
+		<link rel="stylesheet" href="inc/style.css">
+		<script src="jscripts/jquery.min.js"></script>
 	</head>
 	<body>
 		<center>
