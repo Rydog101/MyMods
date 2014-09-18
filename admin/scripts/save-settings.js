@@ -13,7 +13,8 @@ $(document).ready(function()
                 adfly: $("#adfly").val(),
                 paypal: $("#paypal").val(),
                 footer: $("#footer").val()
-            }, success:function(result)
+            },
+            success:function(result)
             {
                 $("div#content").html(result);
             }

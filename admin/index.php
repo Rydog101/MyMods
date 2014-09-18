@@ -10,6 +10,7 @@
 <html>
 	<title>MyMods Control Panel</title>
     <style><?php echo getThemeData('Modern', 'css', true) ?></style>
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="scripts/save-settings.js"></script>
 	<body>
         <div align="center">
@@ -18,7 +19,7 @@
         <h2>MyMods Control Panel</h2>
         <br>
 
-        <div class="save-settings" id="content">
+        <div class="save-settings" id="content" name="content">
             <h3>Site Title</h3>
             <input class = 'textbox' type = "text" name = "title" id = "title" placeholder=<?php echo mysqli_fetch_array(mysqli_query($con, "SELECT `title` FROM `settings` WHERE 1"))['title'] ?>>
 
@@ -50,7 +51,7 @@
             <br>
             <br>
             <br>
-            <button class="button">Save</button>
+            <button class="button" name="save-settings" id="save-settings">Save</button>
             <br>
             <br>
         </div>
