@@ -1,138 +1,84 @@
 <?php
-	if (file_exists("./install/index.php")) {
-	 	header("Location: ./install");
-	 	die();
-	} else {
-		include("inc/connect.php");
+    include_once "functions.php";
+    //if (file_exists("./install/index.php"))
+    //{
+	//	header("Location: ./install");
+	//	die();
+	//}
+    //else
+        include("inc/connect.php");
+
+    $notheme = mysqli_fetch_array(mysqli_query($con, "SELECT `theme` FROM `settings` WHERE 1"))['theme'] == null;
+
+    $json = getThemeData($notheme ? "Modern" : mysqli_fetch_array(mysqli_query($con, "SELECT `theme` FROM `settings` WHERE 1"))['theme'], 'json');
+    $imgDir = 'images/' . $json['id'] . '/';
 ?>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>
-			<?php
-				$title = mysqli_query($con, "SELECT `Title` FROM `settings` WHERE 1");
+    <title><?php echo mysqli_fetch_array(mysqli_query($con, "SELECT `title` FROM `settings` WHERE 1"))['title'] ?></title>
+    <style><?php echo getThemeData(mysqli_fetch_array(mysqli_query($con, "SELECT `theme` FROM `settings` WHERE 1"))['theme'], 'css') ?></style>
 
-				$row = mysqli_fetch_array($title);
-				
-				echo $row['Title'];
-		 	?>
-		 </title>
-		<link rel="stylesheet" type="text/css" href="inc/dl_style.css" />
-	</head>
-	<body>
-		<?php
-			include("header.php");
-		?>
-		<h2>Promotions</h2>
-			<table border="0">
-				<tbody>
-					<tr>
-						<th>Promotion</th>
-						<th>Version</th>
-						<th>Minecraft</th>
-						<th>Downloads</th>
-						<th>Forum</th>
-					</tr>
-					<?php
-						$promotion = mysqli_query($con, "SELECT * FROM `promotions`");
+    <body>
+        <div align="center">
+            <img src=<?php echo $imgDir . "logo.png"?> />
+        </div>
 
-						while($row = mysqli_fetch_array($promotion)) {
-							echo "<tr>";
-							echo "<td>" . $row['Promotion'] . "</td>";
-							echo "<td>" . $row['Version'] . "</td>";
-							echo "<td>" . $row['Minecraft'] . "</td>";
-							echo "<td>";
-							if (!empty($row['Changelog'])) {
-								echo "(<a href=\"" . $row['Changelog'] . "\">changelog</a>) ";
-							}
-							if (!empty($row['dev'])) {
-								echo "(<a href=\"" . $row['dev'] . "\">dev</a>) ";
-							}
-							if (!empty($row['javadoc'])) {
-								echo "(<a href=\"" . $row['javadoc'] . "\">javadoc</a>) ";
-							}
-							if (!empty($row['src'])) {
-								echo "(<a href=\"" . $row['src'] . "\">src</a>) ";
-							}
-							if (!empty($row['universal'])) {
-								echo "(<a href=\"" . $row['universal'] . "\">universal</a>) ";
-							}
-							echo "</td>";
-							echo "<td>";
-							if (!empty($row['mcf'])) {
-								echo "(<a href=\"" . $row['mcf'] . "\">MCF</a>) ";
-							}
-							if (!empty($row['pmc'])) {
-								echo "(<a href=\"" . $row['pmc'] . "\">PMC</a>) ";
-  							}
-							echo "</tr>";
-						}
-					?>
-			</tbody>
-		</table>
-		<?php
-			$tables = mysqli_query($con, "SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema='$db_name' ORDER BY table_name DESC");
+        <?php
+            $tables = mysqli_query($con, "SELECT table_name FROM information_schema.tables WHERE table_type = 'BASE TABLE' AND table_schema='$db_name' ORDER BY table_name DESC");
+            $adfly = mysqli_query($con, "SELECT `Adfly` FROM `settings` WHERE 1");
+            $adlink = mysqli_fetch_array($adfly);
 
-			while($row = mysqli_fetch_array($tables)) {
-				if($row[0] == "settings" || $row[0] == "promotions") {
+            while($row = mysqli_fetch_array($tables))
+            {
+                if($row[0] != "settings")
+                {
+                    echo "<div>";
+                    echo "<h2>" . ucfirst($row[0]) ."</h2>";
+                    echo "<table border=\"0\">";
+                    echo "<tbody>";
+                    echo "<tr>";
+                    echo "<th>Mod</th>";
+                    if(!strpos($row[0],'.')) echo "<th>Minecraft</th>";
+                    echo "<th>Version</th>";
+                    echo "<th>Downloads</th>";
+                    echo "<th>Forum</th>";
+                    echo "</tr>";
 
-				} else {
-					echo "<div>";
-					echo "<h2>" . $row[0] ."</h2>";
-					echo "<table border=\"0\">";
-					echo "<tbody>";
-					echo "<tr>";
-					echo "<th>Mod</th>";
-					echo "<th>Version</th>";
-					echo "<th>Minecraft</th>";
-					echo "<th>Downloads</th>";
-					echo "<th>Forum</th>";
-					echo "</tr>";
+                    $Mod = mysqli_query($con, "SELECT * FROM `" . $row[0] ."`");
 
-					$Mod = mysqli_query($con, "SELECT * FROM `" . $row[0] ."`");
+                    while ($row1 = mysqli_fetch_array($Mod))
+                    {
+                        echo "<div>";
+                        echo "<td>" . $row1['mod'] . "</td>";
+                        if(!strpos($row[0],'.')) echo "<td>" . $row1['minecraft'] . "</td>";
+                        echo "<td>" . $row1['version'] . "</td>";
+                        echo "<td>";
+                        if (!empty($row1['dev'])) echo "(<a href=\"" . $adlink['Adfly'] . $row1['dev'] . "\">dev</a>) ";
+                        if (!empty($row1['src'])) echo "(<a href=\"" . $adlink['Adfly'] . $row1['src'] . "\">src</a>) ";
+                        if (!empty($row1['universal'])) echo "(<a href=\"" . $adlink['Adfly'] . $row1['universal'] . "\">universal</a>) ";
+                        echo "</td>";
+                        echo "<td>";
+                        if (!empty($row1['mcf'])) echo "(<a href=\"" . $row1['mcf'] . "\">MCF</a>) ";
+                        if (!empty($row1['pmc'])) echo "(<a href=\"" . $row1['pmc'] . "\">PMC</a>) ";
+                        echo "</tr>";
+                    }
+                    echo "</tbody>";
+                    echo "</table>";
+                    echo "</div>";
+                }
+            }
+        ?>
 
-					
-					while ($row1 = mysqli_fetch_array($Mod)) {
-							echo "<div>";
-							echo "<tr>";
-							echo "<td>" . $row1['Mod'] . "</td>";
-							echo "<td>" . $row1['Version'] . "</td>";
-							echo "<td>" . $row1['Minecraft'] . "</td>";
-							echo "<td>";
-							if (!empty($row1['Changelog'])) {
-								echo "(<a href=\"" . $row1['Changelog'] . "\">changelog</a>) ";
-							}
-							if (!empty($row1['dev'])) {
-								echo "(<a href=\"" . $row1['dev'] . "\">dev</a>) ";
-							}
-							if (!empty($row1['javadoc'])) {
-								echo "(<a href=\"" . $row1['javadoc'] . "\">javadoc</a>) ";
-							}
-							if (!empty($row1['src'])) {
-								echo "(<a href=\"" . $row1['src'] . "\">src</a>) ";
-							}
-							if (!empty($row1['universal'])) {
-								echo "(<a href=\"" . $row1['universal'] . "\">universal</a>) ";
-							}
-							echo "</td>";
-							echo "<td>";
-							if (!empty($row1['mcf'])) {
-								echo "(<a href=\"" . $row1['mcf'] . "\">MCF</a>) ";
-							}
-							if (!empty($row1['pmc'])) {
-								echo "(<a href=\"" . $row1['pmc'] . "\">PMC</a>) ";
-  							}
-							echo "</tr>";
-				}
-					echo "</tbody>";
-					echo "</table>";
-					echo "</div>";
-				}
-			}
-		?>
-		<?php
-			include("footer.php");
-			}
-		?>
-	</body>
+        <?php
+            echo "<br>";
+            echo "<br>";
+            echo "<br>";
+            echo mysqli_fetch_array(mysqli_query($con, "SELECT `footer` FROM `settings` WHERE 1"))['footer'] . " | MyMods &copy iLexiconn & TheGeekyGuy101";
+            echo "<br>";
+            echo "<br>";
+
+            $donation = mysqli_fetch_array(mysqli_query($con, "SELECT `donations` FROM `settings` WHERE 1"))['donations'];
+            if ($donation != null)
+                echo "<a href='$donation'><img src='https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif'/></a>"
+        ?>
+    </body>
 </html>

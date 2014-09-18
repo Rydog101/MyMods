@@ -1,0 +1,10 @@
+$(document).ready(function()
+{
+    $("#system-check").click(function()
+    {
+        $.ajax({url:"database-config.php",success:function(result)
+        {
+            $("div#content").html(result);
+        }});
+    });
+});

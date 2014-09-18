@@ -1,12 +1,10 @@
 <?php
-function Delete($directory) {
+function Delete($directory)
+{
     foreach(glob("{$directory}/*") as $file)
     {
-        if(is_dir($file)) { 
-            Delete($file);
-        } else {
-            unlink($file);
-        }
+        if(is_dir($file))  Delete($file);
+        else unlink($file);
     }
     rmdir($directory);
 }
@@ -15,4 +13,3 @@ function Delete($directory) {
 
 	header("Location: ../index.php");
 	die();
-?>
