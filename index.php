@@ -1,11 +1,11 @@
 <?php
     include_once "functions.php";
-    //if (file_exists("./install/index.php"))
-    //{
-	//	header("Location: ./install");
-	//	die();
-	//}
-    //else
+    if (file_exists("./install/index.php"))
+    {
+		header("Location: ./install");
+		die();
+	}
+    else
         include("inc/connect.php");
 
     $notheme = mysqli_fetch_array(mysqli_query($con, "SELECT `theme` FROM `settings` WHERE 1"))['theme'] == null;
