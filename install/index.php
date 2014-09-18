@@ -9,6 +9,6 @@ include_once "../functions.php";
     <script src="scripts/system-check.js"></script>
 
     <style><?php echo getThemeData("Modern", "css") ?></style>
-    <img src=<?php echo "../images/" . getThemeData("Modern", "json")["id"] . "/logo.png"?>>
+    <img src=<?php echo "../images/modern/logo.png"?>>
     <div align = "center" class="content" id="content"> <?php include("system-check.php") ?> </div>
 </html>
