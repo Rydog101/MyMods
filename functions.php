@@ -1,8 +1,8 @@
 <?php
-function getThemeData($theme, $type)
+function getThemeData($theme, $type, $install = false)
 {
     $output = "";
-    $zip = zip_open('themes/' . $theme . '.zip');
+    $zip = zip_open(($install == false ? 'themes/' : '../themes/') . $theme . '.zip');
     if ($zip)
     {
         while ($zip_entry = zip_read($zip))
