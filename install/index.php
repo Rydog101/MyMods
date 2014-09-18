@@ -1,17 +1,14 @@
+<?php
+include_once "../functions.php";
+?>
+
 <html>
-	<head>
-		<title>Installer</title>
-		<link rel="stylesheet" href="inc/style.css">
-		<script src="jscripts/jquery.min.js"></script>
-	</head>
-	<body>
-		<center>
-			<br>
-			<div class="content" id="content">
-				<?php
-					include("sys-config.php");
-				?>
-			</div>
-		</center>
-	</body>
+	<title>MyMods Installation</title>
+
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="scripts/system-check.js"></script>
+
+    <style><?php echo getThemeData("Modern", "css") ?></style>
+    <img src=<?php echo "../images/" . getThemeData("Modern", "json")["id"] . "/logo.png"?>>
+    <div align = "center" class="content" id="content"> <?php include("system-check.php") ?> </div>
 </html>
