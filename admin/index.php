@@ -19,7 +19,7 @@
         <h2>MyMods Control Panel</h2>
         <br>
 
-        <div class="save-settings" id="content" name="content">
+        <div class="save-settings" id="content">
             <h3>Site Title</h3>
             <input class = 'textbox' type = "text" name = "title" id = "title" placeholder=<?php echo mysqli_fetch_array(mysqli_query($con, "SELECT `title` FROM `settings` WHERE 1"))['title'] ?>>
 
