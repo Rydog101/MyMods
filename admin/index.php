@@ -19,7 +19,7 @@
         <h2>MyMods Control Panel</h2>
         <br>
 
-        <div class="save-settings" id="content">
+        <div class="save-settings" id="content" name="content">
             <?php
                 include("edit.php");
             ?>
