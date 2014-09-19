@@ -9,6 +9,16 @@ include_once "../functions.php";
     <script src="scripts/system-check.js"></script>
 
     <style><?php echo getThemeData("Modern", "css", true) ?></style>
+    <style>
+        #content {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            background-color: #fbfbfc;
+            width: 75%;
+            border-radius: 15px 15px 15px 15px;
+        }
+    </style>
     <img src=<?php echo "../images/modern/logo.png"?>>
-    <div align = "center" class="content" id="content"> <?php include("system-check.php") ?> </div>
+    <div class="content" id="content"> <?php include("system-check.php") ?> </div>
 </html>

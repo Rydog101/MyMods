@@ -55,4 +55,4 @@
         mysqli_query($con, $recommended_table);
 	}
 
-    echo "<script> window.location.replace('../inc/remove.php') </script>";
+    // echo "<script> window.location.replace('../inc/remove.php') </script>";
