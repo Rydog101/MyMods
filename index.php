@@ -2,9 +2,9 @@
     include("functions.php");
     if (file_exists("./install/index.php"))
     {
-	    header("Location: ./install");
-	    die();
-	}
+        header("Location: ./install");
+        die();
+    }
     else
     include("inc/connect.php");
 
@@ -24,7 +24,7 @@
                 <img src="images/logo.png" />
             </div>
             <?php
-                include getLayoutData('iLexiconn', 'header', 'include');
+                if (getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'header', 'include')) include getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'header', 'include');
 
                 $adfly = mysqli_query($con, "SELECT `Adfly` FROM `settings` WHERE 1");
                 $adlink = mysqli_fetch_array($adfly);
@@ -34,9 +34,8 @@
 
         <!--BODY START-->
         <?php
-            include getLayoutData('iLexiconn', 'body', 'include');
-        ?>
-        <?php
+            if (getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'body', 'include')) include getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'body', 'include');
+
                 echo "<br>";
                 echo "<br>";
                 echo "<br>";
