@@ -1,5 +1,5 @@
 <?php
-    include("functions.php");
+    require("functions.php");
     if (file_exists("./install/index.php"))
     {
         header("Location: ./install");
@@ -18,13 +18,8 @@
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <body>
         <!--HEADER START-->
-            <div id='header'>
-            <br>
-            <div align="center" style="height: auto;">
-                <img src="images/logo.png" />
-            </div>
             <?php
-                if (getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'header', 'include')) include getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'header', 'include');
+                include (getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'header', 'include'));
 
                 $adfly = mysqli_query($con, "SELECT `Adfly` FROM `settings` WHERE 1");
                 $adlink = mysqli_fetch_array($adfly);
@@ -34,8 +29,7 @@
 
         <!--BODY START-->
         <?php
-            if (getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'body', 'include')) include getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'body', 'include');
-
+            include (getLayoutData(mysqli_fetch_array(mysqli_query($con, "SELECT `layout` FROM `settings` WHERE 1"))['layout'], 'body', 'include'));
                 echo "<br>";
                 echo "<br>";
                 echo "<br>";
