@@ -10,19 +10,32 @@
 <html>
 	<title>MyMods Control Panel</title>
     <style><?php echo getThemeData('Modern', 'css', true) ?></style>
+    <style>
+        #main {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 50px;
+            background-color: #eceef1;
+            width: 75%;
+            border-radius: 15px 15px 15px 15px;
+        }
+    </style>
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="scripts/save-settings.js"></script>
 	<body>
         <div align="center">
             <img src=<?php echo $imgDir . "logo.png"?> />
         </div>
-        <h2>MyMods Control Panel</h2>
-        <br>
-
-        <div class="save-settings" id="content" name="content">
-            <?php
-                include("edit.php");
-            ?>
+        <div id="main">
+            <br>
+            <h2>MyMods Control Panel</h2>
+            <br>
+            <div class="save-settings" id="content" name="content">
+                <?php
+                    include("edit.php");
+                ?>
+            </div>
         </div>
+    <br>
 	</body>
 </html>

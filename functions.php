@@ -20,7 +20,7 @@ function getThemeData($theme, $type, $install = false)
     return $output;
 }
 
-function getLayoutData($layout, $fileName, $install = false)
+function getLayoutData($layout, $fileName, $usage, $install = false)
 {
     $output = "";
     $zip = zip_open(($install == false ? 'layouts/' : '../layouts/') . $layout . '.zip');
@@ -31,11 +31,18 @@ function getLayoutData($layout, $fileName, $install = false)
             $file = basename(zip_entry_name($zip_entry));
             if (zip_entry_open($zip, $zip_entry, 'r'))
             {
-                $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-                if (strpos(strval($file), strval($fileName)) !== FALSE)
+                if ($usage == "include" && strpos($file, $fileName) !== FALSE)
                 {
-                    if (strpos($file, 'settings') !== FALSE) $output = json_decode($buf, true);
-                    else $output = $buf;
+                    $output = 'phar://layouts/' . $layout . '.zip/' . zip_entry_name($zip_entry);
+                }
+                if ($usage == "echo")
+                {
+                    $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
+                    if (strpos(strval($file), strval($fileName)) !== FALSE)
+                    {
+                        if (strpos($file, 'settings') !== FALSE) $output = json_decode($buf, true);
+                        else $output = $buf;
+                    }
                 }
             }
         }
