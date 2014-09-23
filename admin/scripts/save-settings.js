@@ -16,8 +16,28 @@ $(document).ready(function()
             },
             success:function(result)
             {
-                $("div#content").load("edit.php");
+                $("div#content").load("ConfigSettings.php");
             }
         });
     });
+
+    $("#ConfigSettings").click(function()
+    {
+        $("div#content").load("ConfigSettings.php");
+    });
+
+    $("#ContentSettings").click(function()
+    {
+        $("div#content").load("ContentSettings.php");
+    });
+
+    $("#LayoutSettings").click(function()
+    {
+        $("div#content").load("LayoutSettings.php");
+    });
+
+    $("#save-content").click(function()
+    {
+
+    })
 });

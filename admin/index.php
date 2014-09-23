@@ -29,10 +29,14 @@
         <div id="main">
             <br>
             <h2>MyMods Control Panel</h2>
-            <br>
+            <button class="button" name="ContentSettings" id="ContentSettings">Content Settings</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="button" name="ConfigSettings" id="ConfigSettings">Configuration Settings</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="button" name="LayoutSettings" id="LayoutSettings">Layout Configuration</button>
             <div class="save-settings" id="content" name="content">
                 <?php
-                    include("edit.php");
+                    include("ContentSettings.php");
                 ?>
             </div>
         </div>
