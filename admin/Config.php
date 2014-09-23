@@ -1,14 +1,9 @@
 <?php
 include("../inc/connect.php");
 ?>
+<script src="scripts/Config.js"></script>
 <h3>Site Title</h3>
 <input class = 'textbox' type = "text" name = "title" id = "title" placeholder=<?php echo mysqli_fetch_array(mysqli_query($con, "SELECT `title` FROM `settings` WHERE 1"))['title'] ?>>
-
-<br>
-<br>
-
-<h3>Theme</h3>
-<input class = 'textbox' type = "text" name = "theme" id = "theme" placeholder=<?php echo mysqli_fetch_array(mysqli_query($con, "SELECT `theme` FROM `settings` WHERE 1"))['theme'] ?>>
 
 <br>
 <br>
@@ -32,6 +27,6 @@ include("../inc/connect.php");
 <br>
 <br>
 <br>
-<button class="button" name="save-settings" id="save-settings">Save</button>
+<button class="button" name="saveConfig" id="saveConfig">Save</button>
 <br>
 <br>

@@ -1,43 +1,17 @@
 $(document).ready(function()
 {
-    $("#save-settings").click(function()
+    $("#Config").click(function()
     {
-        $.ajax
-        ({
-            type:"POST",
-            url:"save-settings.php",
-            data:
-            {
-                title: $("#title").val(),
-                theme: $("#theme").val(),
-                adfly: $("#adfly").val(),
-                paypal: $("#paypal").val(),
-                footer: $("#footer").val()
-            },
-            success:function(result)
-            {
-                $("div#content").load("ConfigSettings.php");
-            }
-        });
+        $("div#content").load("Config.php");
     });
 
-    $("#ConfigSettings").click(function()
+    $("#LayoutConfig").click(function()
     {
-        $("div#content").load("ConfigSettings.php");
+        $("div#content").load("LayoutConfig.php");
     });
 
-    $("#ContentSettings").click(function()
+    $("#ContentConfig").click(function()
     {
-        $("div#content").load("ContentSettings.php");
+        $("div#content").load("ContentConfig.php");
     });
-
-    $("#LayoutSettings").click(function()
-    {
-        $("div#content").load("LayoutSettings.php");
-    });
-
-    $("#save-content").click(function()
-    {
-
-    })
 });
