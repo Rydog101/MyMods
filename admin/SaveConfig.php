@@ -23,5 +23,5 @@
 
     if (!empty($footer))
     {
-        mysqli_query($con, "UPDATE settings SET footer=\"" . $$footer . "\"");
+        mysqli_query($con, "UPDATE settings SET footer=\"" . $footer . "\"");
     }
